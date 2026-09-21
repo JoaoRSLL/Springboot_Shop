@@ -5,6 +5,7 @@ import com.springtest.spring_shop.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,5 +30,11 @@ public class UserResource {
         // .ok() gera automaticamente o código de status HTTP 200 (que significa "Sucesso").
         // .body(u) pega o objeto Java, converte para JSON, e o coloca na resposta.
         return ResponseEntity.ok().body(list);
+    }
+
+    @GetMapping(value = "{id}")
+    public ResponseEntity<User> findById(@PathVariable Long id){
+        User obj = service.findById(id);
+        return ResponseEntity.ok(obj);
     }
 }
