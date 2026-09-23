@@ -3,6 +3,8 @@ package com.springtest.spring_shop.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -19,6 +21,9 @@ public class User implements Serializable {
     private String phone;
     private String Password;
 
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList();
+
     public User(Long id, String name, String email, String phone, String password) {
         this.id = id;
         this.name = name;
@@ -26,6 +31,7 @@ public class User implements Serializable {
         this.phone = phone;
         Password = password;
     }
+
 
     public User() {
     }
@@ -68,6 +74,10 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 
     @Override
