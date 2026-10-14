@@ -29,6 +29,7 @@ public class OrderItemPK {
         this.order = order;
     }
 
+
     public Product getProduct() {
         return product;
     }
