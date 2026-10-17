@@ -1,5 +1,6 @@
 package com.springtest.spring_shop.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -18,6 +19,7 @@ public class Payment implements Serializable {
     private Long id;
     private Instant Moment;
 
+    @JsonIgnore
     @OneToOne
     @MapsId
     private Order order;
