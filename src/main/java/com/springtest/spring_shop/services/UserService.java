@@ -27,4 +27,8 @@ public class UserService {
         return rep.save(obj);
     }
 
+    public void delete(Long id){
+        rep.deleteById(id);
+    }
+
 }
